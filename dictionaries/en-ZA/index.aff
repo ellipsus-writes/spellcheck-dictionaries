@@ -34,7 +34,7 @@ SET UTF-8
 TRY esiaénrtolcdugmfphbyvkw-'.zqjxSNRTLCGDMFPHBEAUYOIVKWóöâôZQJXÅçèîêàïüäñ
 
 ICONV 1
-ICONV ’ '
+ICONV ’ ' ʼ
 
 NOSUGGEST !
 REP 36
@@ -1201,7 +1201,7 @@ BREAK –
 BREAK -
 
 ICONV 6
-ICONV ’ '
+ICONV ’ ' ʼ
 ICONV ﬃ ffi
 ICONV ﬄ ffl
 ICONV ﬀ ff

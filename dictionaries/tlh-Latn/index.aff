@@ -8,7 +8,7 @@ SET UTF-8
 TRY a'ohIenlutgHrmqSDjpbwyvcQ
 WORDCHARS abceghjlmnopqrtuvwy'DHIQS’
 ICONV 1
-ICONV ’ '
+ICONV ’ ' ʼ
 KEY qwertyuiop|asdfghjkl|zxcvbnm|qawsedrftgyhujikolp|azsxdcfvgbhnjmk|aze|qsd|lm|wx|aqz|qws
 SFX E Y 1
 SFX E 0 Du' .

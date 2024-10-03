@@ -45,7 +45,7 @@ NOSPLITSUGS
 # replace correct accented double vowels with unaccented ones for acceptance
 
 ICONV 1
-ICONV ’ '
+ICONV ’ ' ʼ
 
 OCONV 1
 OCONV ' ’
