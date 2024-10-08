@@ -8,7 +8,7 @@ BREAK -
 IGNORE ́
 ICONV 64
 ICONV ʼ '
-ICONV ’ '
+ICONV ’ ' ʼ
 ICONV a 0
 ICONV b 0
 ICONV c 0
