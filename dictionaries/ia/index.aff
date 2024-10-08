@@ -873,7 +873,7 @@ PFX z   0   noven   [^nov]
 PFX z   0   novem   [ov]
 
 ICONV 349
-ICONV ’ ' ʼ
+ICONV ’ '
 ICONV a‧    a
 ICONV b‧    b
 ICONV c‧    c

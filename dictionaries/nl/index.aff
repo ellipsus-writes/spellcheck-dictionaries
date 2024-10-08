@@ -86,7 +86,7 @@ MAP cç
 # replace correct accented double vowels with unaccented ones for acceptance
 # also take care of apostrophe differences and ij as one character
 ICONV 3
-ICONV ’ ' ʼ
+ICONV ’ '
 ICONV ij ĳ
 ICONV IJ Ĳ
 #ICONV áá aa
