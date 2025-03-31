@@ -37,6 +37,9 @@ SET UTF-8
 TRY aioertnsclmdpgubzfvhàq'ACMSkBGPLxEyRTVòIODNwFéùèìjUZKHWJYQXÙÀÒÈÌÉ
 #Nota: non presenti nel dizionario: ÙÀÒÈÌÉ, vanno aggiunte alla TRY rigenerata
 
+ICONV 1
+ICONV ’ '
+
 MAP 5
 MAP aàAÀ
 MAP eéèEÉÈ
