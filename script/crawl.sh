@@ -296,8 +296,8 @@ crawl "georgian" \
 # Go to <https://www.j3e.de/ispell/igerman98/dict/>, get the latest
 # `igerman98-20*` tarball.
 crawl "german" \
-  "https://www.j3e.de/ispell/igerman98/index_en.html" \
-  "https://j3e.de/ispell/igerman98/dict/igerman98-20161207.tar.bz2"
+  "https://github.com/LibreOffice/dictionaries/tree/master/de" \
+  "https://github.com/LibreOffice/dictionaries/archive/refs/heads/master.tar.gz"
 # Nothing:
 crawl "greek" \
   "https://github.com/stevestavropoulos/elspell" \
@@ -666,17 +666,17 @@ generate "da" "danish" \
   "da_DK.aff" "UTF-8" \
   "(GPL-2.0 OR LGPL-2.1 OR MPL-1.1)" "README_da_DK.txt" "UTF-8"
 generate "de" "german" \
-  "hunspell/de_DE.dic" "ISO8859-1" \
-  "hunspell/de_DE.aff" "ISO8859-1" \
-  "(GPL-2.0 OR GPL-3.0)" "hunspell/Copyright" "UTF-8"
+  "de/de_DE_frami.dic" "ISO8859-1" \
+  "de/de_DE_frami.aff" "ISO8859-1" \
+  "(GPL-2.0 OR GPL-3.0)" "de/README_de_DE_frami.txt" "ISO8859-1"
 generate "de-AT" "german" \
-  "hunspell/de_AT.dic" "ISO8859-1" \
-  "hunspell/de_AT.aff" "ISO8859-1" \
-  "(GPL-2.0 OR GPL-3.0)" "hunspell/Copyright" "UTF-8"
+  "de/de_AT_frami.dic" "ISO8859-1" \
+  "de/de_AT_frami.aff" "ISO8859-1" \
+  "(GPL-2.0 OR GPL-3.0)" "de/README_de_DE_frami.txt" "ISO8859-1"
 generate "de-CH" "german" \
-  "hunspell/de_CH.dic" "ISO8859-1" \
-  "hunspell/de_CH.aff" "ISO8859-1" \
-  "(GPL-2.0 OR GPL-3.0)" "hunspell/Copyright" "UTF-8"
+  "de/de_CH_frami.dic" "ISO8859-1" \
+  "de/de_CH_frami.aff" "ISO8859-1" \
+  "(GPL-2.0 OR GPL-3.0)" "de/README_de_DE_frami.txt" "ISO8859-1"
 generate "el" "greek" \
   "elspell-master/myspell/el_GR.dic" "UTF-8" \
   "elspell-master/myspell/el_GR.aff" "UTF-8" \
