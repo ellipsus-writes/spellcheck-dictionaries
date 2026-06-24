@@ -39,6 +39,11 @@ jobs:
             `script/patches/`. Review the diff before merging — an
             upstream source going offline can produce an empty file
             for that language.
+
+            **CI does not run on this PR automatically.** PRs opened
+            by the default `GITHUB_TOKEN` don't trigger downstream
+            workflows. To run `main.yml` against this PR, close and
+            reopen it.
           add-paths: |
             dictionaries/
           delete-branch: true
