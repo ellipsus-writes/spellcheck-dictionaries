@@ -163,13 +163,23 @@ generate() {
     printf "   $(green "✓") patched index.aff (patches/$1.aff.sed)\n"
   fi
 
-  if [ -e "$PATCHES/$1.dic.extra" ]; then
+  if [ -e "$PATCHES/$1.dic.sed" ] || [ -e "$PATCHES/$1.dic.extra" ]; then
     tail -n +2 "$dictionary/index.dic" > "$dictionary/index.dic.body"
-    cat "$PATCHES/$1.dic.extra" >> "$dictionary/index.dic.body"
+
+    if [ -e "$PATCHES/$1.dic.sed" ]; then
+      sed -f "$PATCHES/$1.dic.sed" "$dictionary/index.dic.body" > "$dictionary/index.dic.body.tmp"
+      mv "$dictionary/index.dic.body.tmp" "$dictionary/index.dic.body"
+      printf "   $(green "✓") patched index.dic (patches/$1.dic.sed)\n"
+    fi
+
+    if [ -e "$PATCHES/$1.dic.extra" ]; then
+      cat "$PATCHES/$1.dic.extra" >> "$dictionary/index.dic.body"
+      printf "   $(green "✓") patched index.dic (patches/$1.dic.extra)\n"
+    fi
+
     n=$(wc -l < "$dictionary/index.dic.body" | tr -d ' ')
     { echo "$n"; cat "$dictionary/index.dic.body"; } > "$dictionary/index.dic"
     rm "$dictionary/index.dic.body"
-    printf "   $(green "✓") patched index.dic (patches/$1.dic.extra)\n"
   fi
 }
 
