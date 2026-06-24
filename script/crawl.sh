@@ -152,6 +152,25 @@ generate() {
   else
     printf "   $(red "𐄂 Could not find license file")\n"
   fi
+
+  # Apply local patches that survive re-crawls.
+  # See script/patches/README.md for the file conventions.
+  PATCHES="script/patches"
+
+  if [ -e "$PATCHES/$1.aff.sed" ]; then
+    sed -f "$PATCHES/$1.aff.sed" "$dictionary/index.aff" > "$dictionary/index.aff.tmp"
+    mv "$dictionary/index.aff.tmp" "$dictionary/index.aff"
+    printf "   $(green "✓") patched index.aff (patches/$1.aff.sed)\n"
+  fi
+
+  if [ -e "$PATCHES/$1.dic.extra" ]; then
+    tail -n +2 "$dictionary/index.dic" > "$dictionary/index.dic.body"
+    cat "$PATCHES/$1.dic.extra" >> "$dictionary/index.dic.body"
+    n=$(wc -l < "$dictionary/index.dic.body" | tr -d ' ')
+    { echo "$n"; cat "$dictionary/index.dic.body"; } > "$dictionary/index.dic"
+    rm "$dictionary/index.dic.body"
+    printf "   $(green "✓") patched index.dic (patches/$1.dic.extra)\n"
+  fi
 }
 
 #####################################################################
