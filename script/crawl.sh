@@ -152,6 +152,35 @@ generate() {
   else
     printf "   $(red "𐄂 Could not find license file")\n"
   fi
+
+  # Apply local patches that survive re-crawls.
+  # See script/patches/README.md for the file conventions.
+  PATCHES="script/patches"
+
+  if [ -e "$PATCHES/$1.aff.sed" ]; then
+    sed -f "$PATCHES/$1.aff.sed" "$dictionary/index.aff" > "$dictionary/index.aff.tmp"
+    mv "$dictionary/index.aff.tmp" "$dictionary/index.aff"
+    printf "   $(green "✓") patched index.aff (patches/$1.aff.sed)\n"
+  fi
+
+  if [ -e "$PATCHES/$1.dic.sed" ] || [ -e "$PATCHES/$1.dic.extra" ]; then
+    tail -n +2 "$dictionary/index.dic" > "$dictionary/index.dic.body"
+
+    if [ -e "$PATCHES/$1.dic.sed" ]; then
+      sed -f "$PATCHES/$1.dic.sed" "$dictionary/index.dic.body" > "$dictionary/index.dic.body.tmp"
+      mv "$dictionary/index.dic.body.tmp" "$dictionary/index.dic.body"
+      printf "   $(green "✓") patched index.dic (patches/$1.dic.sed)\n"
+    fi
+
+    if [ -e "$PATCHES/$1.dic.extra" ]; then
+      cat "$PATCHES/$1.dic.extra" >> "$dictionary/index.dic.body"
+      printf "   $(green "✓") patched index.dic (patches/$1.dic.extra)\n"
+    fi
+
+    n=$(wc -l < "$dictionary/index.dic.body" | tr -d ' ')
+    { echo "$n"; cat "$dictionary/index.dic.body"; } > "$dictionary/index.dic"
+    rm "$dictionary/index.dic.body"
+  fi
 }
 
 #####################################################################
@@ -214,20 +243,20 @@ crawl "english" \
   "https://netix.dl.sourceforge.net/project/aoo-extensions/17102/96/dict-en-20231101_aoo.oxt"
 # Go to the link, go to “Additional Hunspell Dictionaries”, go to “Parent folder”.
 crawl "english-gb" \
-  "http://wordlist.aspell.net/dicts/" \
-  "https://altushost-swe.dl.sourceforge.net/project/wordlist/speller/2020.12.07/hunspell-en_GB-ise-2020.12.07.zip"
+  "https://github.com/en-wl/wordlist/releases/tag/rel-2026.02.25" \
+  "https://github.com/en-wl/wordlist/releases/download/rel-2026.02.25/hunspell-en_GB-large-2026.02.25.zip"
 # Same as `english-gb`
 crawl "english-american" \
-  "http://wordlist.aspell.net/dicts/" \
-  "https://altushost-swe.dl.sourceforge.net/project/wordlist/speller/2020.12.07/hunspell-en_US-2020.12.07.zip"
+  "https://github.com/en-wl/wordlist/releases/tag/rel-2026.02.25" \
+  "https://github.com/en-wl/wordlist/releases/download/rel-2026.02.25/hunspell-en_US-large-2026.02.25.zip"
 # Same as `english-gb`
 crawl "english-canadian" \
-  "http://wordlist.aspell.net/dicts/" \
-  "https://altushost-swe.dl.sourceforge.net/project/wordlist/speller/2020.12.07/hunspell-en_CA-2020.12.07.zip"
+  "https://github.com/en-wl/wordlist/releases/tag/rel-2026.02.25" \
+  "https://github.com/en-wl/wordlist/releases/download/rel-2026.02.25/hunspell-en_CA-large-2026.02.25.zip"
 # Same as `english-gb`
 crawl "english-australian" \
-  "http://wordlist.aspell.net/dicts/" \
-  "https://altushost-swe.dl.sourceforge.net/project/wordlist/speller/2020.12.07/hunspell-en_AU-2020.12.07.zip"
+  "https://github.com/en-wl/wordlist/releases/tag/rel-2026.02.25" \
+  "https://github.com/en-wl/wordlist/releases/download/rel-2026.02.25/hunspell-en_AU-large-2026.02.25.zip"
 # Hasn’t updated in 20 years 🤷‍♂️
 crawl "esperanto" \
   "http://www.esperantilo.org/index_en.html" \
@@ -267,8 +296,8 @@ crawl "georgian" \
 # Go to <https://www.j3e.de/ispell/igerman98/dict/>, get the latest
 # `igerman98-20*` tarball.
 crawl "german" \
-  "https://www.j3e.de/ispell/igerman98/index_en.html" \
-  "https://j3e.de/ispell/igerman98/dict/igerman98-20161207.tar.bz2"
+  "https://github.com/LibreOffice/dictionaries/tree/master/de" \
+  "https://github.com/LibreOffice/dictionaries/archive/refs/heads/master.tar.gz"
 # Nothing:
 crawl "greek" \
   "https://github.com/stevestavropoulos/elspell" \
@@ -637,17 +666,17 @@ generate "da" "danish" \
   "da_DK.aff" "UTF-8" \
   "(GPL-2.0 OR LGPL-2.1 OR MPL-1.1)" "README_da_DK.txt" "UTF-8"
 generate "de" "german" \
-  "hunspell/de_DE.dic" "ISO8859-1" \
-  "hunspell/de_DE.aff" "ISO8859-1" \
-  "(GPL-2.0 OR GPL-3.0)" "hunspell/Copyright" "UTF-8"
+  "de/de_DE_frami.dic" "ISO8859-1" \
+  "de/de_DE_frami.aff" "ISO8859-1" \
+  "(GPL-2.0 OR GPL-3.0)" "de/README_de_DE_frami.txt" "ISO8859-1"
 generate "de-AT" "german" \
-  "hunspell/de_AT.dic" "ISO8859-1" \
-  "hunspell/de_AT.aff" "ISO8859-1" \
-  "(GPL-2.0 OR GPL-3.0)" "hunspell/Copyright" "UTF-8"
+  "de/de_AT_frami.dic" "ISO8859-1" \
+  "de/de_AT_frami.aff" "ISO8859-1" \
+  "(GPL-2.0 OR GPL-3.0)" "de/README_de_DE_frami.txt" "ISO8859-1"
 generate "de-CH" "german" \
-  "hunspell/de_CH.dic" "ISO8859-1" \
-  "hunspell/de_CH.aff" "ISO8859-1" \
-  "(GPL-2.0 OR GPL-3.0)" "hunspell/Copyright" "UTF-8"
+  "de/de_CH_frami.dic" "ISO8859-1" \
+  "de/de_CH_frami.aff" "ISO8859-1" \
+  "(GPL-2.0 OR GPL-3.0)" "de/README_de_DE_frami.txt" "ISO8859-1"
 generate "el" "greek" \
   "elspell-master/myspell/el_GR.dic" "UTF-8" \
   "elspell-master/myspell/el_GR.aff" "UTF-8" \
@@ -661,21 +690,21 @@ generate "el-polyton" "greek-polyton" \
 # comes from aspell’s description as “BSD/MIT-like”.
 # See: http://wordlist.aspell.net/other-dicts/#official
 generate "en-AU" "english-australian" \
-  "en_AU.dic" "UTF-8" \
-  "en_AU.aff" "UTF-8" \
-  "(MIT AND BSD)" "README_en_AU.txt" "UTF-8"
+  "en_AU-large.dic" "UTF-8" \
+  "en_AU-large.aff" "UTF-8" \
+  "(MIT AND BSD)" "README_en_AU-large.txt" "UTF-8"
 generate "en-CA" "english-canadian" \
-  "en_CA.dic" "UTF-8" \
-  "en_CA.aff" "UTF-8" \
-  "(MIT AND BSD)" "README_en_CA.txt" "UTF-8"
+  "en_CA-large.dic" "UTF-8" \
+  "en_CA-large.aff" "UTF-8" \
+  "(MIT AND BSD)" "README_en_CA-large.txt" "UTF-8"
 generate "en-GB" "english-gb" \
-  "en_GB-ise.dic" "UTF-8" \
-  "en_GB-ise.aff" "UTF-8" \
-  "(MIT AND BSD)" "README_en_GB-ise.txt" "UTF-8"
+  "en_GB-large.dic" "UTF-8" \
+  "en_GB-large.aff" "UTF-8" \
+  "(MIT AND BSD)" "README_en_GB-large.txt" "UTF-8"
 generate "en" "english-american" \
-  "en_US.dic" "UTF-8" \
-  "en_US.aff" "UTF-8" \
-  "(MIT AND BSD)" "README_en_US.txt" "UTF-8"
+  "en_US-large.dic" "UTF-8" \
+  "en_US-large.aff" "UTF-8" \
+  "(MIT AND BSD)" "README_en_US-large.txt" "UTF-8"
 generate "en-ZA" "english" \
   "en_ZA.dic" "UTF-8" \
   "en_ZA.aff" "UTF-8" \
