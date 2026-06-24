@@ -1,0 +1,44 @@
+name: Refresh dictionaries
+
+on:
+  schedule:
+    - cron: '0 6 1 * *'  # 06:00 UTC on the 1st of each month
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: refresh-dictionaries
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run crawl
+        run: bash script/crawl.sh
+
+      - name: Open pull request with changes
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: chore/refresh-dictionaries
+          title: 'Refresh dictionaries from upstream sources'
+          commit-message: 'Refresh dictionaries from upstream sources'
+          body: |
+            Automated monthly refresh of every dictionary under
+            `dictionaries/` via `script/crawl.sh`.
+
+            The crawl re-fetches each language archive, regenerates
+            `index.dic` / `index.aff` / `license` through the
+            `generate` pipeline, and re-applies any patches under
+            `script/patches/`. Review the diff before merging — an
+            upstream source going offline can produce an empty file
+            for that language.
+          add-paths: |
+            dictionaries/
+          delete-branch: true
