@@ -214,20 +214,20 @@ crawl "english" \
   "https://netix.dl.sourceforge.net/project/aoo-extensions/17102/96/dict-en-20231101_aoo.oxt"
 # Go to the link, go to “Additional Hunspell Dictionaries”, go to “Parent folder”.
 crawl "english-gb" \
-  "http://wordlist.aspell.net/dicts/" \
-  "https://altushost-swe.dl.sourceforge.net/project/wordlist/speller/2020.12.07/hunspell-en_GB-ise-2020.12.07.zip"
+  "https://github.com/en-wl/wordlist/releases/tag/rel-2026.02.25" \
+  "https://github.com/en-wl/wordlist/releases/download/rel-2026.02.25/hunspell-en_GB-large-2026.02.25.zip"
 # Same as `english-gb`
 crawl "english-american" \
   "https://github.com/en-wl/wordlist/releases/tag/rel-2026.02.25" \
   "https://github.com/en-wl/wordlist/releases/download/rel-2026.02.25/hunspell-en_US-large-2026.02.25.zip"
 # Same as `english-gb`
 crawl "english-canadian" \
-  "http://wordlist.aspell.net/dicts/" \
-  "https://altushost-swe.dl.sourceforge.net/project/wordlist/speller/2020.12.07/hunspell-en_CA-2020.12.07.zip"
+  "https://github.com/en-wl/wordlist/releases/tag/rel-2026.02.25" \
+  "https://github.com/en-wl/wordlist/releases/download/rel-2026.02.25/hunspell-en_CA-large-2026.02.25.zip"
 # Same as `english-gb`
 crawl "english-australian" \
-  "http://wordlist.aspell.net/dicts/" \
-  "https://altushost-swe.dl.sourceforge.net/project/wordlist/speller/2020.12.07/hunspell-en_AU-2020.12.07.zip"
+  "https://github.com/en-wl/wordlist/releases/tag/rel-2026.02.25" \
+  "https://github.com/en-wl/wordlist/releases/download/rel-2026.02.25/hunspell-en_AU-large-2026.02.25.zip"
 # Hasn’t updated in 20 years 🤷‍♂️
 crawl "esperanto" \
   "http://www.esperantilo.org/index_en.html" \
@@ -661,17 +661,17 @@ generate "el-polyton" "greek-polyton" \
 # comes from aspell’s description as “BSD/MIT-like”.
 # See: http://wordlist.aspell.net/other-dicts/#official
 generate "en-AU" "english-australian" \
-  "en_AU.dic" "UTF-8" \
-  "en_AU.aff" "UTF-8" \
-  "(MIT AND BSD)" "README_en_AU.txt" "UTF-8"
+  "en_AU-large.dic" "UTF-8" \
+  "en_AU-large.aff" "UTF-8" \
+  "(MIT AND BSD)" "README_en_AU-large.txt" "UTF-8"
 generate "en-CA" "english-canadian" \
-  "en_CA.dic" "UTF-8" \
-  "en_CA.aff" "UTF-8" \
-  "(MIT AND BSD)" "README_en_CA.txt" "UTF-8"
+  "en_CA-large.dic" "UTF-8" \
+  "en_CA-large.aff" "UTF-8" \
+  "(MIT AND BSD)" "README_en_CA-large.txt" "UTF-8"
 generate "en-GB" "english-gb" \
-  "en_GB-ise.dic" "UTF-8" \
-  "en_GB-ise.aff" "UTF-8" \
-  "(MIT AND BSD)" "README_en_GB-ise.txt" "UTF-8"
+  "en_GB-large.dic" "UTF-8" \
+  "en_GB-large.aff" "UTF-8" \
+  "(MIT AND BSD)" "README_en_GB-large.txt" "UTF-8"
 generate "en" "english-american" \
   "en_US-large.dic" "UTF-8" \
   "en_US-large.aff" "UTF-8" \
