@@ -1,27 +1,26 @@
-This dictionary pack was created by the Polish Native Lang Project.
-The pack contains current versions of all OpenOffice.org dictionares as of 2008-12-06.
-Project homepage: http://pl.openoffice.org
-
 Spellchecker
 ------------
 
 This dictionary for spell-checking Polish texts is licensed under
-GPL, LGPL, MPL (Mozilla Public License) and Creative Commons
+GPL, LGPL, MPL (Mozilla Public License), Apache 2.0 and Creative Commons
 ShareAlike licenses (see http://creativecommons.org/licenses/sa/1.0).
 
-This version of the dictionary was generated on 2008.12.06
+This version of the dictionary was generated on 2017-05-14
+The most up-to-date version can be found at:
+http://www.sjp.pl/slownik/en/
 
-Dictionary maintainer: Marek Futrega (futrega@gmail.com) 
-Corrections: Marcin Miłkowski
+Dictionary maintainer: Marek Futrega (futrega@gmail.com)
 
 Thesaurus
 ----------
 
-Copyright (C) 2004-2008 Marcin Miłkowski <milek_pl@users.sourceforge.net>
-This product is made available subject to the terms of GNU Lesser 
+Copyright (C) 2014-2017 Dobry słownik <redakcja@dobryslownik.pl>
+Copyright (C) 2004-2014 Marcin Miłkowski <milek_pl@users.sourceforge.net>
+This product is made available subject to the terms of GNU Lesser
 General Public License Version 2.1.
-Generated on 2008-05-12. 
-Homepage: http://synonimy.ux.pl/ 
+
+Generated on 2017.05.07.
+Homepage: http://dobryslownik.pl
 
 Hyphenation dictionary
 ----------------------
@@ -29,6 +28,12 @@ Hyphenation dictionary
 Language: Polish (pl PL).
 Origin:   Based on the TeX hyphenation patterns plhyph.tex,
 version 3.0a, Wednesday, May 17th, 1995
+
+The original file is in CTAN archives, for example here:
+
+http://ctan.binkerton.com/ctan.readme.php?filename=language/polish/plhyph.tex
+
+and is licensed under LPPL.
 
 The first version of the patterns was developed
 by Hanna Kołodziejska (1987).
@@ -53,8 +58,8 @@ under the conditions specified by the author of TeX:
      except with respect to preloaded fonts,
      unless the changes are authorized by the authors of the macros.''
 
-                                           Donald E. Knuth 
-
-Current license:  GNU LGPL license.
+                                           Donald E. Knuth
+License	OpenOffice.org Adaptions of this package are licensed under the
+  		GNU LGPL license.
 Author:  conversion and corrects author is
           Artur Polaczyński <artiip@gmail.com>

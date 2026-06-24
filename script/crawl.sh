@@ -404,10 +404,6 @@ crawl "occitan" \
 crawl "persian" \
   "https://github.com/b00f/lilak" \
   "https://github.com/b00f/lilak/releases/download/v3.3/fa-IR.zip"
-# Unknown, I contacted an old maintainer.
-crawl "polish" \
-  "http://extensions.openoffice.org/en/project/polish-dictionary-pack" \
-  "https://master.dl.sourceforge.net/project/aoo-extensions/806/4/pl-dict.oxt?viasf=1"
 # Go to <https://natura.di.uminho.pt/download/sources/Dictionaries/hunspell/>,
 # get the last one **before** `hunspell-pt_PT-preao*`
 crawl "portuguese-pt" \
@@ -875,11 +871,10 @@ generate "is" "libreoffice" \
   "dictionaries-master/is/is.dic" "UTF-8" \
   "dictionaries-master/is/is.aff" "UTF-8" \
   "CC-BY-SA-3.0" "dictionaries-master/is/license.txt" "UTF-8"
-# Offline...
-# generate "it" "italian" \
-#   "dictionaries/it_IT.dic" "UTF-8" \
-#   "dictionaries/it_IT.aff" "UTF-8" \
-#   "GPL-3.0" "dictionaries/README.txt" "UTF-8"
+generate "it" "libreoffice" \
+  "dictionaries-master/it_IT/it_IT.dic" "UTF-8" \
+  "dictionaries-master/it_IT/it_IT.aff" "UTF-8" \
+  "GPL-3.0" "dictionaries-master/it_IT/README_it_IT.txt" "UTF-8"
 generate "ka" "georgian" \
   "ka_GE.spell-master/dictionaries/ka_GE.dic" "UTF-8" \
   "ka_GE.spell-master/dictionaries/ka_GE.aff" "UTF-8" \
@@ -941,10 +936,10 @@ generate "oc" "occitan" \
   "oc_FR.dic" "UTF-8" \
   "oc_FR.aff" "UTF-8" \
   "GPL-2.0" "LICENSES-en.txt" "UTF-8"
-generate "pl" "polish" \
-  "pl_PL.dic" "ISO8859-2" \
-  "pl_PL.aff" "ISO8859-2" \
-  "(GPL-3.0 OR LGPL-3.0 OR MPL-2.0)" "README_en.txt" "UTF-8"
+generate "pl" "libreoffice" \
+  "dictionaries-master/pl_PL/pl_PL.dic" "ISO8859-2" \
+  "dictionaries-master/pl_PL/pl_PL.aff" "ISO8859-2" \
+  "(GPL-3.0 OR LGPL-3.0 OR MPL-2.0)" "dictionaries-master/pl_PL/README_en.txt" "UTF-8"
 generate "pt-PT" "portuguese-pt" \
   "pt_PT.dic" "UTF-8" \
   "pt_PT.aff" "UTF-8" \
