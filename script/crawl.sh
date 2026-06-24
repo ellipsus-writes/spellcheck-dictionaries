@@ -218,8 +218,8 @@ crawl "english-gb" \
   "https://altushost-swe.dl.sourceforge.net/project/wordlist/speller/2020.12.07/hunspell-en_GB-ise-2020.12.07.zip"
 # Same as `english-gb`
 crawl "english-american" \
-  "http://wordlist.aspell.net/dicts/" \
-  "https://altushost-swe.dl.sourceforge.net/project/wordlist/speller/2020.12.07/hunspell-en_US-2020.12.07.zip"
+  "https://github.com/en-wl/wordlist/releases/tag/rel-2026.02.25" \
+  "https://github.com/en-wl/wordlist/releases/download/rel-2026.02.25/hunspell-en_US-large-2026.02.25.zip"
 # Same as `english-gb`
 crawl "english-canadian" \
   "http://wordlist.aspell.net/dicts/" \
@@ -673,9 +673,9 @@ generate "en-GB" "english-gb" \
   "en_GB-ise.aff" "UTF-8" \
   "(MIT AND BSD)" "README_en_GB-ise.txt" "UTF-8"
 generate "en" "english-american" \
-  "en_US.dic" "UTF-8" \
-  "en_US.aff" "UTF-8" \
-  "(MIT AND BSD)" "README_en_US.txt" "UTF-8"
+  "en_US-large.dic" "UTF-8" \
+  "en_US-large.aff" "UTF-8" \
+  "(MIT AND BSD)" "README_en_US-large.txt" "UTF-8"
 generate "en-ZA" "english" \
   "en_ZA.dic" "UTF-8" \
   "en_ZA.aff" "UTF-8" \
